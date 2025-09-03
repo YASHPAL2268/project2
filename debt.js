@@ -180,7 +180,7 @@ export async function createDebtPayment(formData) {
 
 export async function getDebtPayments(debtId) {
   try {
-    const { userId } = auth()
+    const { userId } = await auth()
     if (!userId) throw new Error('Unauthorized')
 
     const user = await prisma.user.findUnique({
